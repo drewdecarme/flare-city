@@ -82,15 +82,15 @@ async function init(params: InitOptions) {
 
     let existingContent = fs.readFileSync(sourcePath, "utf-8");
     existingContent = existingContent.replace(
-      new RegExp(`@flare-city/example-${template}`, "g"),
+      new RegExp(template, "g"),
       `{{projectName}}`
     );
     existingContent = existingContent.replace(
-      new RegExp(`example-${template}-project-name`, "g"),
+      new RegExp(`${template}-project-name`, "g"),
       `{{projectName}}`
     );
     existingContent = existingContent.replace(
-      new RegExp(`example-${template}-project-description`, "g"),
+      new RegExp(`${template}-project-description`, "g"),
       `{{projectDescription}}`
     );
     existingContent = existingContent.replace(

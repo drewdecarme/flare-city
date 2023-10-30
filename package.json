@@ -12,7 +12,7 @@
     "url": "git+https://github.com/drewdecarme/flare-city.git"
   },
   "scripts": {
-    "build": "yarn turbo build",
+    "build": "yarn turbo build --filter=!with-sample-route",
     "release": "yarn semantic-release",
     "release:dry": "yarn release --no-ci --dry-run --debug"
   },
