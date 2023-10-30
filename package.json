@@ -1,8 +1,7 @@
 {
-  "name": "@flare-kit/flare-kit",
+  "name": "@flare-city/flare-city",
   "version": "1.0.0",
-  "description": "A real-time golf scoring application that allows you to see the status of your team's progress in various games",
-  "main": "index.js",
+  "description": "FlareCity simplifies API development on Cloudflare Workers, offering a purposeful and efficient framework for building, testing, and deploying serverless APIs.",
   "workspaces": {
     "packages": [
       "packages/**"
@@ -10,18 +9,29 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/drewdecarme/flare-kit.git"
+    "url": "git+https://github.com/drewdecarme/flare-city.git"
+  },
+  "scripts": {
+    "build": "yarn turbo build",
+    "release": "yarn semantic-release",
+    "release:dry": "yarn release --no-ci --dry-run --debug"
   },
   "author": "Drew DeCarme",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/drewdecarme/flare-kit/issues"
+    "url": "https://github.com/drewdecarme/flare-city/issues"
   },
-  "homepage": "https://github.com/drewdecarme/flare-kit#readme",
+  "homepage": "https://github.com/drewdecarme/flare-city#readme",
   "packageManager": "yarn@3.6.4",
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
     "eslint": "8.52.0",
     "prettier": "3.0.3",
+    "semantic-release": "^22.0.5",
     "typescript": "5.2.2"
+  },
+  "dependencies": {
+    "turbo": "^1.10.16"
   }
 }

@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/drewdecarme/shank-city#readme",
   "devDependencies": {
+    "@flare-city/test": "workspace:^",
     "@flare-city/tsconfig": "workspace:",
     "@types/find-node-modules": "^2.1.1",
     "@types/fs-extra": "^11.0.3",
@@ -31,7 +32,6 @@
   },
   "dependencies": {
     "@flare-city/eslint-config": "workspace:",
-    "@flare-city/example-with-sample-route": "workspace:^",
     "@inquirer/prompts": "^3.2.0",
     "commander": "11.1.0",
     "find-node-modules": "^2.1.3",
