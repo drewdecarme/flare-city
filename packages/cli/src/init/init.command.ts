@@ -52,22 +52,10 @@ async function init(params: InitOptions) {
     ],
   });
 
-  const nodeModulesDirs = findNodeModules({ cwd: __dirname });
-  const packageDir = `@flare-city/example-${template}`;
-
-  const srcDir = nodeModulesDirs.reduce((accum, nodeModuleDir) => {
-    const fullNodeModuleDirPath = resolve(__dirname, nodeModuleDir);
-    const packagePath = fullNodeModuleDirPath.concat(`/${packageDir}`);
-    const doesPathExist = fs.existsSync(packagePath);
-
-    if (doesPathExist) {
-      return packagePath;
-    }
-    return accum;
-  }, "");
+  const srcDir = resolve(__dirname, `../../examples/${template}`);
 
   if (!srcDir) {
-    throw new Error(`Cannot locate "${packageDir}"`);
+    throw new Error(`Cannot locate "${srcDir}"`);
   }
 
   const filesTs = resolve(srcDir, `./**/*.ts`);
