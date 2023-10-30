@@ -1,0 +1,27 @@
+{
+  "name": "@flare-kit/flare-kit",
+  "version": "1.0.0",
+  "description": "A real-time golf scoring application that allows you to see the status of your team's progress in various games",
+  "main": "index.js",
+  "workspaces": {
+    "packages": [
+      "packages/**"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drewdecarme/flare-kit.git"
+  },
+  "author": "Drew DeCarme",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/drewdecarme/flare-kit/issues"
+  },
+  "homepage": "https://github.com/drewdecarme/flare-kit#readme",
+  "packageManager": "yarn@3.6.4",
+  "devDependencies": {
+    "eslint": "8.52.0",
+    "prettier": "3.0.3",
+    "typescript": "5.2.2"
+  }
+}
