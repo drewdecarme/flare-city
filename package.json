@@ -13,8 +13,7 @@
   },
   "scripts": {
     "build": "yarn turbo build --filter=!with-sample-route",
-    "release": "yarn semantic-release",
-    "release:dry": "yarn release --no-ci --dry-run --debug"
+    "release": "yarn workspaces foreach -Apt run release"
   },
   "author": "Drew DeCarme",
   "license": "MIT",
