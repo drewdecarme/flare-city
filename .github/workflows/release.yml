@@ -30,11 +30,9 @@ jobs:
           node-version: "lts/*"
       - name: Install dependencies
         run: yarn install
-      - name: Build
-        run: yarn build
       #   - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
       #     run: npm audit signatures
-      - name: Release
+      - name: Build & Release
         env:
           GH_TOKEN: ${{ secrets.FLARE_CITY_SEMANTIC_RELEASE }}
           NPM_TOKEN: ${{ secrets.FLARE_CITY_NPM }}

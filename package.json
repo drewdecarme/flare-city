@@ -12,8 +12,8 @@
     "url": "git+https://github.com/drewdecarme/flare-city.git"
   },
   "scripts": {
-    "build": "yarn turbo build --filter=!with-sample-route",
-    "release": "yarn workspaces foreach -Apt run release"
+    "build": "yarn turbo build --filter='!with-*'",
+    "release": "yarn turbo release --filter='!with-*'"
   },
   "author": "Drew DeCarme",
   "license": "MIT",

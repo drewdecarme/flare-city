@@ -2,7 +2,6 @@ import { Command } from "commander";
 import { input, select } from "@inquirer/prompts";
 import { resolve, dirname, join } from "path";
 import fs from "fs-extra";
-import findNodeModules from "find-node-modules";
 
 import { fileURLToPath } from "url";
 import type { InitOptions } from "./init.options.js";
