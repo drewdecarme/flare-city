@@ -2,7 +2,6 @@
   "name": "@flare-city/cli",
   "version": "0.0.1",
   "description": "The FlareCity CLI exposes a few helper functions to aid with development and deployment",
-  "main": "dist/index.js",
   "type": "module",
   "bin": {
     "flare-city": "./bin/index.js"
@@ -14,7 +13,8 @@
   "scripts": {
     "build": "yarn tsc",
     "dev": "yarn tsc --watch",
-    "lint": "npx eslint ./src/**/* --fix"
+    "lint": "npx eslint ./src/**/* --fix",
+    "release": "yarn semantic-release"
   },
   "repository": {
     "type": "git",
@@ -26,16 +26,7 @@
     "url": "https://github.com/drewdecarme/shank-city/issues"
   },
   "homepage": "https://github.com/drewdecarme/shank-city#readme",
-  "devDependencies": {
-    "@flare-city/test": "workspace:^",
-    "@flare-city/tsconfig": "workspace:",
-    "@types/find-node-modules": "^2.1.1",
-    "@types/fs-extra": "^11.0.3",
-    "@types/inquirer": "^9.0.6",
-    "typescript": "5.2.2"
-  },
   "dependencies": {
-    "@flare-city/eslint-config": "workspace:",
     "@inquirer/prompts": "^3.2.0",
     "commander": "11.1.0",
     "fs-extra": "^11.1.1",
@@ -44,5 +35,15 @@
     "inquirer": "^9.2.11",
     "vite": "4.5.0",
     "vitest": "0.34.6"
+  },
+  "devDependencies": {
+    "@flare-city/eslint-config": "workspace:",
+    "@flare-city/release": "workspace:",
+    "@flare-city/tsconfig": "workspace:",
+    "@types/find-node-modules": "^2.1.1",
+    "@types/fs-extra": "^11.0.3",
+    "@types/inquirer": "^9.0.6",
+    "semantic-release": "^22.0.6",
+    "typescript": "5.2.2"
   }
 }
