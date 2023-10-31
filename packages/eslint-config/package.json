@@ -1,6 +1,6 @@
 {
   "name": "@flare-city/eslint-config",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "A common eslint configuration package",
   "main": ".eslintrc.cjs",
   "module": ".eslintrc.cjs",

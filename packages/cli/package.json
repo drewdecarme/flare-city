@@ -1,6 +1,6 @@
 {
   "name": "@flare-city/cli",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "The FlareCity CLI exposes a few helper functions to aid with development and deployment",
   "type": "module",
   "bin": {
@@ -13,8 +13,7 @@
   "scripts": {
     "build": "yarn tsc",
     "dev": "yarn tsc --watch",
-    "lint": "npx eslint ./src/**/* --fix",
-    "release": "yarn semantic-release"
+    "lint": "npx eslint ./src/**/* --fix"
   },
   "repository": {
     "type": "git",
@@ -38,7 +37,6 @@
   },
   "devDependencies": {
     "@flare-city/eslint-config": "workspace:",
-    "@flare-city/release": "workspace:",
     "@flare-city/tsconfig": "workspace:",
     "@types/find-node-modules": "^2.1.1",
     "@types/fs-extra": "^11.0.3",

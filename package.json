@@ -13,7 +13,7 @@
   },
   "scripts": {
     "build": "yarn turbo build --filter='!with-*'",
-    "release": "yarn turbo release --filter='!with-*'"
+    "release": "yarn build && yarn changeset publish"
   },
   "author": "Drew DeCarme",
   "license": "MIT",
@@ -23,14 +23,11 @@
   "homepage": "https://github.com/drewdecarme/flare-city#readme",
   "packageManager": "yarn@3.6.4",
   "devDependencies": {
-    "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/git": "^10.0.1",
+    "@changesets/cli": "^2.26.2",
     "eslint": "8.52.0",
     "prettier": "3.0.3",
     "semantic-release": "^22.0.5",
+    "turbo": "^1.10.16",
     "typescript": "5.2.2"
-  },
-  "dependencies": {
-    "turbo": "^1.10.16"
   }
 }
