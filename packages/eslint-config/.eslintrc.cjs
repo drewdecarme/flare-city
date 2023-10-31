@@ -16,6 +16,7 @@ module.exports = {
     "node_modules/",
     "dist/",
     "vitest.config.ts",
+    "release.config.cjs",
   ],
   rules: {
     "@typescript-eslint/consistent-type-imports": "error",
