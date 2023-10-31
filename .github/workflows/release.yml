@@ -36,4 +36,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.FLARE_CITY_SEMANTIC_RELEASE }}
           NPM_TOKEN: ${{ secrets.FLARE_CITY_NPM }}
-        run: yarn release
