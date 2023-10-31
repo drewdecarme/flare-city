@@ -14,8 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: release
     env:
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+      TURBO_TOKEN: ${{ secrets.FLARE_CITY_TURBO_TOKEN }}
+      TURBO_TEAM: ${{ vars.FLARE_CITY_TURBO_TEAM }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -37,5 +37,5 @@ jobs:
         with:
           publish: yarn release
         env:
-          GITHUB_TOKEN: ${{ secrets.FLARE_CITY_SEMANTIC_RELEASE }}
+          GITHUB_TOKEN: ${{ secrets.FLARE_CITY_GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.FLARE_CITY_NPM }}
