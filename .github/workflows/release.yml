@@ -35,6 +35,6 @@ jobs:
       #     run: npm audit signatures
       - name: Release
         env:
-          GH_TOKEN: ${{ secrets.FLARE_CITY_RELEASE }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release
+          GH_TOKEN: ${{ secrets.FLARE_CITY_SEMANTIC_RELEASE }}
+        #   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: yarn release
