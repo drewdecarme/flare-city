@@ -1,6 +1,6 @@
 {
   "name": "@flare-city/cli",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "The FlareCity CLI exposes a few helper functions to aid with development and deployment",
   "type": "module",
   "bin": {
