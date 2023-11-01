@@ -36,8 +36,8 @@
     "vitest": "0.34.6"
   },
   "devDependencies": {
-    "@flare-city/eslint-config": "workspace:",
-    "@flare-city/tsconfig": "workspace:",
+    "@flare-city/eslint-config": "workspace:*",
+    "@flare-city/tsconfig": "workspace:*",
     "@types/find-node-modules": "^2.1.1",
     "@types/fs-extra": "^11.0.3",
     "@types/inquirer": "^9.0.6",

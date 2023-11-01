@@ -907,12 +907,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@flare-city/cli@workspace:, @flare-city/cli@workspace:packages/cli":
+"@flare-city/cli@workspace:*, @flare-city/cli@workspace:packages/cli":
   version: 0.0.0-use.local
   resolution: "@flare-city/cli@workspace:packages/cli"
   dependencies:
-    "@flare-city/eslint-config": "workspace:"
-    "@flare-city/tsconfig": "workspace:"
+    "@flare-city/eslint-config": "workspace:*"
+    "@flare-city/tsconfig": "workspace:*"
     "@inquirer/prompts": "npm:^3.2.0"
     "@types/find-node-modules": "npm:^2.1.1"
     "@types/fs-extra": "npm:^11.0.3"
@@ -931,15 +931,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@flare-city/core@workspace:, @flare-city/core@workspace:^, @flare-city/core@workspace:packages/core":
+"@flare-city/core@workspace:*, @flare-city/core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@flare-city/core@workspace:packages/core"
   dependencies:
     "@cfworker/jwt": "npm:4.0.6"
     "@cloudflare/workers-types": "npm:4.20231025.0"
-    "@flare-city/eslint-config": "workspace:^"
-    "@flare-city/logger": "workspace:"
-    "@flare-city/tsconfig": "workspace:"
+    "@flare-city/eslint-config": "workspace:*"
+    "@flare-city/logger": "workspace:*"
+    "@flare-city/tsconfig": "workspace:*"
     "@types/node": "npm:20.8.9"
     dotenv-cli: "npm:7.3.0"
     typescript: "npm:5.2.2"
@@ -963,7 +963,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@flare-city/eslint-config@workspace:, @flare-city/eslint-config@workspace:^, @flare-city/eslint-config@workspace:packages/eslint-config":
+"@flare-city/eslint-config@workspace:*, @flare-city/eslint-config@workspace:packages/eslint-config":
   version: 0.0.0-use.local
   resolution: "@flare-city/eslint-config@workspace:packages/eslint-config"
   dependencies:
@@ -985,23 +985,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@flare-city/logger@workspace:, @flare-city/logger@workspace:packages/logger":
+"@flare-city/logger@workspace:*, @flare-city/logger@workspace:packages/logger":
   version: 0.0.0-use.local
   resolution: "@flare-city/logger@workspace:packages/logger"
   dependencies:
-    "@flare-city/eslint-config": "workspace:^"
-    "@flare-city/tsconfig": "workspace:"
+    "@flare-city/eslint-config": "workspace:*"
+    "@flare-city/tsconfig": "workspace:*"
     typescript: "npm:5.2.2"
   languageName: unknown
   linkType: soft
 
-"@flare-city/test@workspace:, @flare-city/test@workspace:packages/test":
+"@flare-city/test@workspace:*, @flare-city/test@workspace:packages/test":
   version: 0.0.0-use.local
   resolution: "@flare-city/test@workspace:packages/test"
   dependencies:
-    "@flare-city/core": "workspace:^"
-    "@flare-city/eslint-config": "workspace:^"
-    "@flare-city/tsconfig": "workspace:"
+    "@flare-city/core": "workspace:*"
+    "@flare-city/eslint-config": "workspace:*"
+    "@flare-city/tsconfig": "workspace:*"
     typescript: "npm:5.2.2"
     vite: "npm:4.5.0"
     vitest: "npm:0.34.6"
@@ -1009,7 +1009,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@flare-city/tsconfig@workspace:, @flare-city/tsconfig@workspace:packages/tsconfig":
+"@flare-city/tsconfig@workspace:*, @flare-city/tsconfig@workspace:packages/tsconfig":
   version: 0.0.0-use.local
   resolution: "@flare-city/tsconfig@workspace:packages/tsconfig"
   dependencies:
@@ -12624,12 +12624,12 @@ __metadata:
   resolution: "with-sample-route@workspace:packages/cli/examples/with-sample-route"
   dependencies:
     "@cloudflare/workers-types": "npm:latest"
-    "@flare-city/cli": "workspace:"
-    "@flare-city/core": "workspace:"
-    "@flare-city/eslint-config": "workspace:"
-    "@flare-city/logger": "workspace:"
-    "@flare-city/test": "workspace:"
-    "@flare-city/tsconfig": "workspace:"
+    "@flare-city/cli": "workspace:*"
+    "@flare-city/core": "workspace:*"
+    "@flare-city/eslint-config": "workspace:*"
+    "@flare-city/logger": "workspace:*"
+    "@flare-city/test": "workspace:*"
+    "@flare-city/tsconfig": "workspace:*"
     "@types/node": "npm:20.8.9"
     dotenv-cli: "npm:7.3.0"
     typescript: "npm:5.2.2"

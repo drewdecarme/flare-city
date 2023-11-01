@@ -24,8 +24,8 @@
   },
   "homepage": "https://github.com/drewdecarme/flare-city#readme",
   "devDependencies": {
-    "@flare-city/eslint-config": "workspace:^",
-    "@flare-city/tsconfig": "workspace:",
+    "@flare-city/eslint-config": "workspace:*",
+    "@flare-city/tsconfig": "workspace:*",
     "typescript": "5.2.2"
   }
 }
