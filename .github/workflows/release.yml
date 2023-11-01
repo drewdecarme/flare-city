@@ -39,7 +39,7 @@ jobs:
         with:
           title: "chore: Version packages"
           commit: "chore: Version packages"
-          version: yarn changeset version # version so pnp can reconcile packages
+          # version: yarn changeset version # version so pnp can reconcile packages
           publish: yarn packages:publish # build and publish to npm
         env:
           GITHUB_TOKEN: ${{ secrets.FLARE_CITY_GITHUB_TOKEN }}
