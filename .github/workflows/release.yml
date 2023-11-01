@@ -32,9 +32,9 @@ jobs:
 
       - name: Set yarn config
         run: |
-          yarn config set npmScopes.storefront-ui.npmAuthToken "\${NPM_TOKEN}"
-          yarn config set npmScopes.storefront-ui.npmPublishRegistry 'https://registry.npmjs.org'
-          yarn config set npmScopes.storefront-ui.npmRegistryServer 'https://registry.npmjs.org'
+          yarn config set npmScopes.flare-city.npmAuthToken "\${NPM_TOKEN}"
+          yarn config set npmScopes.flare-city.npmPublishRegistry 'https://registry.npmjs.org'
+          yarn config set npmScopes.flare-city.npmRegistryServer 'https://registry.npmjs.org'
         env:
           NPM_TOKEN: ${{ secrets.FLARE_CITY_NPM }}
 
