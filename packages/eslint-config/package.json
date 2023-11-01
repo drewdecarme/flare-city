@@ -5,6 +5,9 @@
   "main": ".eslintrc.cjs",
   "module": ".eslintrc.cjs",
   "type": "module",
+  "files": [
+    ".eslintrc.cjs"
+  ],
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/drewdecarme/flare-city.git"

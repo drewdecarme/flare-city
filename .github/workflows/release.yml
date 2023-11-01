@@ -35,6 +35,8 @@ jobs:
           yarn config set npmScopes.storefront-ui.npmAuthToken "\${NPM_TOKEN}"
           yarn config set npmScopes.storefront-ui.npmPublishRegistry 'https://registry.npmjs.org'
           yarn config set npmScopes.storefront-ui.npmRegistryServer 'https://registry.npmjs.org'
+        env:
+          NPM_TOKEN: ${{ secrets.FLARE_CITY_NPM }}
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
