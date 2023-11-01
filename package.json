@@ -15,7 +15,7 @@
   "scripts": {
     "build": "yarn turbo build --filter='!with-*'",
     "packages:version": "yarn changeset version",
-    "packages:publish": "yarn workspaces foreach --all --no-private npm publish --access public",
+    "packages:publish": "yarn build && yarn workspaces foreach --all --no-private npm publish --access public",
     "packages:tag": "yarn changeset tag"
   },
   "author": "Drew DeCarme",
