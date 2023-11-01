@@ -23,7 +23,7 @@
     "url": "https://github.com/drewdecarme/flare-city/issues"
   },
   "homepage": "https://github.com/drewdecarme/flare-city#readme",
-  "packageManager": "yarn@3.6.4",
+  "packageManager": "yarn@4.0.1",
   "devDependencies": {
     "@changesets/cli": "^2.26.2",
     "eslint": "8.52.0",
