@@ -20,8 +20,8 @@
   "homepage": "https://github.com/drewdecarme/flare-city#readme",
   "scripts": {
     "build": "yarn turbo build --filter='!with-*'",
-    "packages:version": "npx changeset version",
-    "packages:publish": "yarn packages:version && yarn build && yarn workspaces foreach --all --no-private npm publish --access public",
+    "packages:version": "yarn changeset version",
+    "packages:publish": "yarn build && yarn workspaces foreach --all --no-private npm publish --access public",
     "packages:tag": "yarn changeset tag"
   },
   "packageManager": "yarn@4.0.1",
