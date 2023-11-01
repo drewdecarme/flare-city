@@ -1,6 +1,6 @@
 {
   "name": "@flare-city/tsconfig",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Common tsconfigs for different types of projects in FlareCity",
   "exports": {
     ".": {
