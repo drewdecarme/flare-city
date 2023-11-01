@@ -18,31 +18,37 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-          persist-credentials: false
 
       - name: Setup Node.js LTS
         uses: actions/setup-node@v3
         with:
           node-version: "lts/*"
 
-      - name: Install dependencies
-        run: yarn install --immutable
-
-      - name: Set yarn config
+      - name: Setup Yarn v4
         run: |
-          yarn config set npmScopes.flare-city.npmAuthToken "\${NPM_TOKEN}"
+          yarn config set npmScopes.npmAuthToken "\${NPM_TOKEN}"
         env:
           NPM_TOKEN: ${{ secrets.FLARE_CITY_NPM }}
 
-      - name: Create Release Pull Request or Publish to npm
+      - name: Install dependencies
+        run: yarn  --immutable
+
+      - name: Packages - build
+        run: yarn build
+
+      - name: Packages - version
         id: changesets
         uses: changesets/action@v1
         with:
           title: "chore: Version packages"
           commit: "chore: Version packages"
-          publish: yarn release
+          version: yarn version # version so pnp can reconcile packages
+          publish: yarn pusblish # build and publish to npm
         env:
           GITHUB_TOKEN: ${{ secrets.FLARE_CITY_GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.FLARE_CITY_NPM }}
+
+      - name: Packages - tag
+        # if: steps.changesets.outputs.hasChangesets == 'false'
+        # You can do something when a publish should happen.
+        run: yarn tag

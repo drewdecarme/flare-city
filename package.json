@@ -14,9 +14,9 @@
   },
   "scripts": {
     "build": "yarn turbo build --filter='!with-*'",
+    "version": "yarn changeset version",
     "publish": "yarn workspaces foreach --all --no-private npm publish --access public",
-    "tag": "yarn changeset tag",
-    "release": "yarn build && yarn publish && yarn tag"
+    "tag": "yarn changeset tag"
   },
   "author": "Drew DeCarme",
   "license": "MIT",
