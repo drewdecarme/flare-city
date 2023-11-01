@@ -13,7 +13,7 @@
   },
   "scripts": {
     "build": "yarn turbo build --filter='!with-*'",
-    "publish": "yarn workspaces foreach --no-private --all yarn publish --access public",
+    "publish": "yarn workspaces foreach --no-private npm publish --access public",
     "tag": "yarn changeset tag",
     "release": "yarn build && yarn publish && yarn tag"
   },
