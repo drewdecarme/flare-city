@@ -43,7 +43,7 @@ jobs:
           title: "chore: Version packages"
           commit: "chore: Version packages"
           version: yarn version # version so pnp can reconcile packages
-          publish: yarn pusblish # build and publish to npm
+          publish: yarn publish # build and publish to npm
 
       - name: Packages - tag
         # if: steps.changesets.outputs.hasChangesets == 'false'
