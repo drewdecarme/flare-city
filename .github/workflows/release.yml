@@ -15,6 +15,8 @@ jobs:
     env:
       TURBO_TOKEN: ${{ secrets.FLARE_CITY_TURBO_TOKEN }}
       TURBO_TEAM: ${{ vars.FLARE_CITY_TURBO_TEAM }}
+      NPM_TOKEN: ${{ secrets.FLARE_CITY_NPM }}
+      GITHUB_TOKEN: ${{ secrets.FLARE_CITY_GITHUB_TOKEN }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -27,8 +29,6 @@ jobs:
       - name: Setup Yarn v4
         run: |
           yarn config set npmScopes.flare-city.npmAuthToken "\${NPM_TOKEN}"
-        env:
-          NPM_TOKEN: ${{ secrets.FLARE_CITY_NPM }}
 
       - name: Install dependencies
         run: yarn  --immutable
@@ -44,9 +44,6 @@ jobs:
           commit: "chore: Version packages"
           version: yarn version # version so pnp can reconcile packages
           publish: yarn pusblish # build and publish to npm
-        env:
-          GITHUB_TOKEN: ${{ secrets.FLARE_CITY_GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.FLARE_CITY_NPM }}
 
       - name: Packages - tag
         # if: steps.changesets.outputs.hasChangesets == 'false'
