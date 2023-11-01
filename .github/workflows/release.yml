@@ -30,6 +30,12 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
+      - name: Set yarn config
+        run: |
+          yarn config set npmScopes.storefront-ui.npmAuthToken "\${NPM_TOKEN}"
+          yarn config set npmScopes.storefront-ui.npmPublishRegistry 'https://registry.npmjs.org'
+          yarn config set npmScopes.storefront-ui.npmRegistryServer 'https://registry.npmjs.org'
+
       - name: Create Release Pull Request or Publish to npm
         id: changesets
         uses: changesets/action@v1
