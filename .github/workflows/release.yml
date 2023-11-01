@@ -41,7 +41,7 @@ jobs:
           version: yarn changeset version # version so pnp can reconcile packages
           publish: yarn packages:publish # build and publish to npm
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.FLARE_CITY_GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.FLARE_CITY_NPM }}
 
       - name: Packages - tag
