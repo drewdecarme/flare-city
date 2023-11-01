@@ -15,7 +15,6 @@ jobs:
     env:
       TURBO_TOKEN: ${{ secrets.FLARE_CITY_TURBO_TOKEN }}
       TURBO_TEAM: ${{ vars.FLARE_CITY_TURBO_TEAM }}
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.FLARE_CITY_NPM }}
     steps:
       - name: Checkout
@@ -39,11 +38,10 @@ jobs:
         with:
           title: "chore: Version packages"
           commit: "chore: Version packages"
-          version: yarn packages:version # version so pnp can reconcile packages
-          publish: yarn packages:publish # build and publish to npm
+          # version: yarn packages:version # version so pnp can reconcile packages
+          # publish: yarn packages:publish # build and publish to npm
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.FLARE_CITY_NPM }}
 
       - name: Packages - tag
         # if: steps.changesets.outputs.hasChangesets == 'false'
