@@ -2,6 +2,8 @@
   "name": "@flare-city/flare-city",
   "private": true,
   "version": "1.0.0",
+  "author": "Drew DeCarme",
+  "license": "MIT",
   "description": "FlareCity simplifies API development on Cloudflare Workers, offering a purposeful and efficient framework for building, testing, and deploying serverless APIs.",
   "workspaces": {
     "packages": [
@@ -12,24 +14,21 @@
     "type": "git",
     "url": "git+https://github.com/drewdecarme/flare-city.git"
   },
+  "bugs": {
+    "url": "https://github.com/drewdecarme/flare-city/issues"
+  },
+  "homepage": "https://github.com/drewdecarme/flare-city#readme",
   "scripts": {
     "build": "yarn turbo build --filter='!with-*'",
     "packages:version": "yarn changeset version",
     "packages:publish": "yarn build && yarn workspaces foreach --all --no-private npm publish --access public",
     "packages:tag": "yarn changeset tag"
   },
-  "author": "Drew DeCarme",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/drewdecarme/flare-city/issues"
-  },
-  "homepage": "https://github.com/drewdecarme/flare-city#readme",
   "packageManager": "yarn@4.0.1",
   "devDependencies": {
     "@changesets/cli": "^2.26.2",
     "eslint": "8.52.0",
     "prettier": "3.0.3",
-    "semantic-release": "^22.0.5",
     "turbo": "^1.10.16",
     "typescript": "5.2.2"
   }

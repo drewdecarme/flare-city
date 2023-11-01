@@ -15,6 +15,7 @@ jobs:
     env:
       TURBO_TOKEN: ${{ secrets.FLARE_CITY_TURBO_TOKEN }}
       TURBO_TEAM: ${{ vars.FLARE_CITY_TURBO_TEAM }}
+      GITHUB_TOKEN: ${{ secrets.FLARE_CITY_GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.FLARE_CITY_NPM }}
     steps:
       - name: Checkout

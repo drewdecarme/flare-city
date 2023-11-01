@@ -30,9 +30,9 @@
   "author": "Drew DeCarme (drewdecarme@gmail.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/drewdecarme/shank-city/issues"
+    "url": "https://github.com/drewdecarme/flare-city/issues"
   },
-  "homepage": "https://github.com/drewdecarme/shank-city#readme",
+  "homepage": "https://github.com/drewdecarme/flare-city#readme",
   "dependencies": {
     "@cfworker/jwt": "4.0.6",
     "@flare-city/logger": "workspace:",

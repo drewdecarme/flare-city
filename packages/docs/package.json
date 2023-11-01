@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/drewdecarme/flare-kit.git"
+    "url": "git+ssh://git@github.com/drewdecarme/flare-city.git"
   },
   "author": "Drew DeCarme",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/drewdecarme/flare-kit/issues"
+    "url": "https://github.com/drewdecarme/flare-city/issues"
   },
-  "homepage": "https://github.com/drewdecarme/flare-kit#readme",
+  "homepage": "https://github.com/drewdecarme/flare-city#readme",
   "dependencies": {
     "next": "14.0.0",
     "nextra": "2.13.2",

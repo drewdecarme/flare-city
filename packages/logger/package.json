@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/drewdecarme/flare-kit.git"
+    "url": "git+ssh://git@github.com/drewdecarme/flare-city.git"
   },
   "author": "Drew DeCarme",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/drewdecarme/flare-kit/issues"
+    "url": "https://github.com/drewdecarme/flare-city/issues"
   },
-  "homepage": "https://github.com/drewdecarme/flare-kit#readme",
+  "homepage": "https://github.com/drewdecarme/flare-city#readme",
   "devDependencies": {
     "@flare-city/eslint-config": "workspace:^",
     "@flare-city/tsconfig": "workspace:",
