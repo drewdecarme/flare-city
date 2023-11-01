@@ -26,7 +26,7 @@ jobs:
 
       - name: Setup Yarn v4
         run: |
-          yarn config set npmScopes.npmAuthToken "\${NPM_TOKEN}"
+          yarn config set npmScopes.flare-city.npmAuthToken "\${NPM_TOKEN}"
         env:
           NPM_TOKEN: ${{ secrets.FLARE_CITY_NPM }}
 
