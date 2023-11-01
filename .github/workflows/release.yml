@@ -27,9 +27,12 @@ jobs:
           yarn config set npmScopes.flare-city.npmAuthToken "\${NPM_TOKEN}"
 
       - name: Install dependencies
-        run: yarn  --immutable
+        run: yarn --immutable
 
-      - name: Packages - build & version
+      - name: Packages - build
+        run: yarn build
+
+      - name: Packages - version
         id: changesets
         uses: changesets/action@v1
         with:
