@@ -1,5 +1,11 @@
 # @flare-city/cli
 
+## 0.4.0
+
+### Minor Changes
+
+- 40e49b8: Removes `@flare-city/cli` dependency from `@flare-city/test` and adds templates to power the `flare-city init` CLI command
+
 ## 0.3.0
 
 ### Minor Changes
