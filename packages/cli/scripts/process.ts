@@ -6,7 +6,7 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 interface WordReplacement {
-  oldWord: string;
+  oldWord: string | RegExp;
   newWord: string;
 }
 
@@ -82,7 +82,7 @@ try {
       },
       { oldWord: `${packageName}-project-name`, newWord: `{{projectName}}` },
       { oldWord: packageName, newWord: `{{projectName}}` },
-      { oldWord: "workspace:*", newWord: "latest" },
+      { oldWord: /workspace:\*/, newWord: "latest" },
       // Add more replacements as needed
     ];
 
