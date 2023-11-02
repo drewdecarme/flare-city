@@ -16,3 +16,8 @@ bin
 !.yarn/versions
 
 .turbo
+
+# Placed here to avoid .gitignore for yarn pack
+packages/cli/templates/*
+packages/cli/!templates/.gitignore
+packages/cli/!templates/readme.md

@@ -1,8 +1,4 @@
 {
-  "extends": "@flare-city/tsconfig/library/build",
-  "compilerOptions": {
-    "outDir": "./bin",
-    "declarationDir": "./bin"
-  },
-  "include": ["./src/**/*.ts"]
+  "extends": "@flare-city/tsconfig/library",
+  "include": ["./src/**/*", "scripts", "examples"]
 }

@@ -7,7 +7,8 @@
   "description": "FlareCity simplifies API development on Cloudflare Workers, offering a purposeful and efficient framework for building, testing, and deploying serverless APIs.",
   "workspaces": {
     "packages": [
-      "packages/**"
+      "packages/**",
+      "examples/**"
     ]
   },
   "repository": {
@@ -19,7 +20,7 @@
   },
   "homepage": "https://github.com/drewdecarme/flare-city#readme",
   "scripts": {
-    "build": "yarn turbo build --filter='!with-*'",
+    "build": "yarn turbo build --filter='!@flare-city/with-*'",
     "packages:version": "yarn changeset version",
     "packages:publish": "yarn build && yarn workspaces foreach --all --no-private npm publish --access public",
     "packages:tag": "yarn changeset tag"
