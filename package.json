@@ -22,7 +22,7 @@
   "scripts": {
     "build": "yarn turbo build --filter='!with-*'",
     "packages:version": "yarn changeset version",
-    "packages:publish": "yarn build && yarn workspaces foreach --all --no-private npm publish --access public",
+    "packages:publish": "yarn build && yarn workspaces foreach --all --no-private npm publish --access public --tolerate-republish",
     "packages:tag": "yarn changeset tag"
   },
   "packageManager": "yarn@4.0.1",
