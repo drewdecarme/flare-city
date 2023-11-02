@@ -57,7 +57,7 @@ function processDirectory(
 }
 
 const examplesDirPath = path.resolve(__dirname, "../examples");
-const templatesDirPath = path.resolve(__dirname, "../src/init/templates");
+const templatesDirPath = path.resolve(__dirname, "../templates");
 const excludedDirectories = [".turbo", "node_modules", ".wrangler"];
 
 try {

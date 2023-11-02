@@ -8,7 +8,7 @@
   },
   "files": [
     "bin",
-    "examples"
+    "templates"
   ],
   "scripts": {
     "build": "yarn process && yarn tsc --project tsconfig.build.json",

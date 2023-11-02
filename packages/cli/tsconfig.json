@@ -1,4 +1,4 @@
 {
   "extends": "@flare-city/tsconfig/library",
-  "include": ["./src/index.ts", "scripts", "examples"]
+  "include": ["./src/**/*", "scripts", "examples"]
 }
