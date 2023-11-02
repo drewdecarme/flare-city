@@ -907,7 +907,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@flare-city/cli@workspace:*, @flare-city/cli@workspace:^, @flare-city/cli@workspace:packages/cli":
+"@flare-city/cli@workspace:*, @flare-city/cli@workspace:packages/cli":
   version: 0.0.0-use.local
   resolution: "@flare-city/cli@workspace:packages/cli"
   dependencies:
@@ -1001,7 +1001,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@flare-city/test@workspace:packages/test"
   dependencies:
-    "@flare-city/cli": "workspace:^"
+    "@flare-city/cli": "workspace:*"
     "@flare-city/core": "workspace:*"
     "@flare-city/eslint-config": "workspace:*"
     "@flare-city/tsconfig": "workspace:*"
