@@ -39,19 +39,22 @@ async function init(params: InitOptions) {
       })
     : join(process.cwd(), params.location, projectName);
 
+  const templatesDirPath = resolve(__dirname, "./templates");
+
+  const directories = fs
+    .readdirSync(templatesDirPath, { withFileTypes: true })
+    .filter((dirent) => dirent.isDirectory())
+    .map((dirent) => dirent.name);
+
   const template = await select({
     message: "Please select a template",
-    choices: [
-      {
-        name: "with-sample-route",
-        description:
-          "A simple example that contains 1 route with 2 endpoints at `/sample`.",
-        value: "with-sample-route",
-      },
-    ],
+    choices: directories.map((dir) => ({
+      name: dir,
+      value: dir,
+    })),
   });
 
-  const srcDir = resolve(__dirname, `../../examples/${template}`);
+  const srcDir = resolve(__dirname, `./templates/${template}`);
 
   if (!srcDir) {
     throw new Error(`Cannot locate "${srcDir}"`);
