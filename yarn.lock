@@ -942,6 +942,7 @@ __metadata:
     "@flare-city/eslint-config": "workspace:*"
     "@flare-city/logger": "workspace:*"
     "@flare-city/tsconfig": "workspace:*"
+    "@types/body-parser": "npm:^1.19.4"
     "@types/node": "npm:20.8.9"
     dotenv-cli: "npm:7.3.0"
     typescript: "npm:5.2.2"
@@ -2206,6 +2207,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/body-parser@npm:^1.19.4":
+  version: 1.19.4
+  resolution: "@types/body-parser@npm:1.19.4"
+  dependencies:
+    "@types/connect": "npm:*"
+    "@types/node": "npm:*"
+  checksum: 10accc30773319bd49af7d12d2cd5faf9a0293ea4764345297f26ba6ef31d5caa7609da7619584d6c61279e09b89d3ab13d28c5cb644807c5d9c722ae1454778
+  languageName: node
+  linkType: hard
+
 "@types/chai-subset@npm:^1.3.3":
   version: 1.3.4
   resolution: "@types/chai-subset@npm:1.3.4"
@@ -2219,6 +2230,15 @@ __metadata:
   version: 4.3.9
   resolution: "@types/chai@npm:4.3.9"
   checksum: 8f48986c3b6e0b3b2be392bc2736fbb43044b18fa18272b277433d445d87b76398012f4c05dd0e501c4ef0f26bc3934139d0ebcd362f8289bb5bc7158de4c81e
+  languageName: node
+  linkType: hard
+
+"@types/connect@npm:*":
+  version: 3.4.37
+  resolution: "@types/connect@npm:3.4.37"
+  dependencies:
+    "@types/node": "npm:*"
+  checksum: 79ef1f79a28235ea7cbefa153914318d7b46d60041a932681b613abd706591108f4f17ddd2072ee8ec23ba9a3fb068a6c3bbdca66b95de1a7e6039bd940ae988
   languageName: node
   linkType: hard
 
@@ -12654,6 +12674,25 @@ __metadata:
   checksum: d5f8027b9a8255a493a94e4ec1b74a27bff6679d5ffe29316a3215e4712945c84ef73ca4045c7e20ae7d0c72f5f57f296e04a4928e773d4276a2f1222e4c2e99
   languageName: node
   linkType: hard
+
+"with-crud@workspace:packages/cli/examples/with-crud":
+  version: 0.0.0-use.local
+  resolution: "with-crud@workspace:packages/cli/examples/with-crud"
+  dependencies:
+    "@cloudflare/workers-types": "npm:latest"
+    "@flare-city/cli": "workspace:*"
+    "@flare-city/core": "workspace:*"
+    "@flare-city/eslint-config": "workspace:*"
+    "@flare-city/logger": "workspace:*"
+    "@flare-city/test": "workspace:*"
+    "@flare-city/tsconfig": "workspace:*"
+    "@types/node": "npm:20.8.9"
+    dotenv-cli: "npm:7.3.0"
+    typescript: "npm:5.2.2"
+    wrangler: "npm:3.15.0"
+    zod: "npm:3.22.4"
+  languageName: unknown
+  linkType: soft
 
 "with-sample-route@workspace:packages/cli/examples/with-sample-route":
   version: 0.0.0-use.local

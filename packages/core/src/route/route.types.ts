@@ -22,19 +22,25 @@ export type RouteGET<
   P extends RequestURLSearchParams = RequestURLSearchParams,
 > = {
   path: string;
-  method: Extract<RouteMethods, "GET">;
+  method: "GET";
   middleware?: Middleware[];
   parse?: {
     segments?: ZodType<S>;
     params?: ZodType<P>;
   };
-  handler: (
-    request: Request,
-    env: Env,
-    ctx: ExecutionContext<S, P>,
-    res: RouteHandlerResponse<R>
-  ) => Promise<Response>;
+  handler: RouteGETHandler<R, S, P>;
 };
+
+export type RouteGETHandler<
+  R extends Record<string, unknown> = Record<string, unknown>,
+  S extends RequestURLSegments = RequestURLSegments,
+  P extends RequestURLSearchParams = RequestURLSearchParams,
+> = (
+  request: Request,
+  env: Env,
+  ctx: ExecutionContext<S, P>,
+  res: RouteHandlerResponse<R>
+) => Promise<Response>;
 
 /**
  * the POST route definition
@@ -46,8 +52,8 @@ export type RoutePOST<
   P extends RequestURLSearchParams = RequestURLSearchParams,
 > = {
   path: string;
-  method: Extract<RouteMethods, "GET">;
   middleware?: Middleware[];
+  method: "POST";
   parse?: {
     body: ZodType<B>;
     segments?: ZodType<S>;
@@ -68,7 +74,66 @@ export type RoutePOSTHandler<
   res: RouteHandlerResponse<R>
 ) => Promise<Response>;
 
-export type RouteDefinition = RouteGET | RoutePOST;
+/**
+ * the POST route definition
+ */
+export type RoutePUT<
+  R extends ApiResponse<unknown> = ApiResponse<unknown>,
+  B extends Record<string, unknown> = Record<string, unknown>,
+  S extends RequestURLSegments = RequestURLSegments,
+  P extends RequestURLSearchParams = RequestURLSearchParams,
+> = {
+  path: string;
+  method: "PUT";
+  middleware?: Middleware[];
+  parse?: {
+    body: ZodType<B>;
+    segments?: ZodType<S>;
+    params?: ZodType<P>;
+  };
+  handler: RoutePUTHandler<R, B, S, P>;
+};
+
+export type RoutePUTHandler<
+  R extends Record<string, unknown> = Record<string, unknown>,
+  B extends Record<string, unknown> = Record<string, unknown>,
+  S extends RequestURLSegments = RequestURLSegments,
+  P extends RequestURLSearchParams = RequestURLSearchParams,
+> = (
+  request: Request,
+  env: Env,
+  ctx: ExecutionContext<S, P, B>,
+  res: RouteHandlerResponse<R>
+) => Promise<Response>;
+
+/**
+ * the DELETE route definition
+ */
+export type RouteDELETE<
+  S extends RequestURLSegments = RequestURLSegments,
+  P extends RequestURLSearchParams = RequestURLSearchParams,
+> = {
+  path: string;
+  method: "DELETE";
+  middleware?: Middleware[];
+  parse?: {
+    segments?: ZodType<S>;
+    params?: ZodType<P>;
+  };
+  handler: RouteDELETEHandler<S, P>;
+};
+
+export type RouteDELETEHandler<
+  S extends RequestURLSegments = RequestURLSegments,
+  P extends RequestURLSearchParams = RequestURLSearchParams,
+> = (
+  request: Request,
+  env: Env,
+  ctx: ExecutionContext<S, P>,
+  res: RouteHandlerResponse<ApiResponse<{ message: string }>>
+) => Promise<Response>;
+
+export type RouteDefinition = RouteGET | RoutePOST | RoutePUT | RouteDELETE;
 
 export type RouteMatch = {
   route: RouteDefinition;

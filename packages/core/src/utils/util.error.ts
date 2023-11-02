@@ -102,6 +102,7 @@ export const errorHandler = (error: unknown) => {
       {
         status: error.status_code,
         statusText: error.status_text,
+        headers: new Headers({ "Content-Type": "application/json" }),
       }
     );
   }

@@ -1,0 +1,94 @@
+{
+  "info": {
+    "name": "FlareCity | with-crud",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Post",
+      "item": [
+        {
+          "name": "Get Post by ID",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "Create Post",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\": \"this is a post title\",\n    \"description\": \"this is a post description\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{API_DOMAIN}}/post",
+              "host": ["{{API_DOMAIN}}"],
+              "path": ["post"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Post by ID",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\": \"this is a post title\",\n    \"description\": \"this is a post description\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{API_DOMAIN}}/post/1",
+              "host": ["{{API_DOMAIN}}"],
+              "path": ["post", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Post",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{API_DOMAIN}}/post/1",
+              "host": ["{{API_DOMAIN}}"],
+              "path": ["post", "1"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "API_DOMAIN",
+      "value": "http://0.0.0.0:8282",
+      "type": "string"
+    }
+  ]
+}
