@@ -11,7 +11,7 @@
     "examples"
   ],
   "scripts": {
-    "build": "yarn tsc --project tsconfig.build.json",
+    "build": "yarn process && yarn tsc --project tsconfig.build.json",
     "dev": "yarn build --watch",
     "process": "yarn tsx ./scripts/process.ts",
     "lint": "npx eslint ./src/**/* --fix"
