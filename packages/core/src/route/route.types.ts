@@ -133,30 +133,6 @@ export type RouteDELETEHandler<
   res: RouteHandlerResponse<ApiResponse<{ message: string }>>
 ) => Promise<Response>;
 
-/**
- * the CRUD route definition
- */
-export type RouteCRUD<
-  R extends ApiResponse<unknown> = ApiResponse<unknown>,
-  B extends Record<string, unknown> = Record<string, unknown>,
-  S extends RequestURLSegments = RequestURLSegments,
-  P extends RequestURLSearchParams = RequestURLSearchParams,
-> = {
-  path: string;
-  middleware?: Middleware[];
-  parse?: {
-    body: ZodType<B>;
-    segments?: ZodType<S>;
-    params?: ZodType<P>;
-  };
-  handlers: {
-    post: RoutePOSTHandler<R, B, S, P>;
-    get: RouteGETHandler<R, S, P>;
-    delete: RouteDELETEHandler<S, P>;
-    put: RoutePUTHandler<R, B, S, P>;
-  };
-};
-
 export type RouteDefinition = RouteGET | RoutePOST | RoutePUT | RouteDELETE;
 
 export type RouteMatch = {
