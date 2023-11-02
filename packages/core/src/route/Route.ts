@@ -7,7 +7,6 @@ import type {
 import { ErrorNotFound, errorHandler, ErrorServer } from "../utils";
 import { log, createMiddlewareValidate } from "../utils";
 import type {
-  RouteCRUD,
   RouteDELETE,
   RouteGET,
   RouteHandlerResponse,
