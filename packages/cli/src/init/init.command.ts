@@ -39,7 +39,7 @@ async function init(params: InitOptions) {
       })
     : join(process.cwd(), params.location, projectName);
 
-  const templatesDirPath = resolve(__dirname, "./templates");
+  const templatesDirPath = resolve(__dirname, "../../templates");
 
   const directories = fs
     .readdirSync(templatesDirPath, { withFileTypes: true })
@@ -54,68 +54,35 @@ async function init(params: InitOptions) {
     })),
   });
 
-  const srcDir = resolve(__dirname, `./templates/${template}`);
-
-  if (!srcDir) {
-    throw new Error(`Cannot locate "${srcDir}"`);
-  }
-
-  const filesTs = resolve(srcDir, `./**/*.ts`);
-  const filesLint = resolve(srcDir, `./.eslintrc.cjs`);
-  const filesGit = resolve(srcDir, `./.gitignore`);
-  const filesJson = resolve(srcDir, `./*.json`);
-  const filesToml = resolve(srcDir, `./*.toml`);
-
-  const outputDir = projectLocation;
+  const templateDirGlob = resolve(templatesDirPath, `./${template}/**/*.*`);
+  const templateDirDotGlob = resolve(templatesDirPath, `./${template}/**/.*`);
 
   // 2. Process TS files
-  const filesToProcess = glob.sync([
-    filesTs,
-    filesLint,
-    filesGit,
-    filesJson,
-    filesToml,
-  ]);
+  const filesToProcess = glob.sync([templateDirGlob, templateDirDotGlob]);
 
-  console.log("Processing and transforming template...");
+  console.log("Instantiating template...");
   filesToProcess.forEach((sourcePath) => {
     const filePath = sourcePath.split(template)[1]; // Extract relative file path from the source path
-    const outputPath = `${outputDir}${filePath}`;
+    const outputPath = `${projectLocation}${filePath}`;
 
-    let existingContent = fs.readFileSync(sourcePath, "utf-8");
-    existingContent = existingContent.replace(
-      new RegExp(template, "g"),
-      `{{projectName}}`
-    );
-    existingContent = existingContent.replace(
-      new RegExp(`${template}-project-name`, "g"),
-      `{{projectName}}`
-    );
-    existingContent = existingContent.replace(
-      new RegExp(`${template}-project-description`, "g"),
-      `{{projectDescription}}`
-    );
-    existingContent = existingContent.replace(
-      new RegExp(`workspace:`, "g"),
-      `latest`
-    );
+    const existingContent = fs.readFileSync(sourcePath, "utf-8");
 
     // Compile the Handlebars template if it exists
-    const compiledTemplate = existingContent
-      ? handlebars.compile(existingContent)
-      : undefined;
+    const compiledTemplate = handlebars.compile(existingContent);
 
     // Replace placeholders with actual values
-    const replacedContent = compiledTemplate
-      ? compiledTemplate({ projectName, projectDescription })
-      : existingContent;
+    const replacedContent = compiledTemplate({
+      projectName,
+      projectDescription,
+    });
 
-    // Write the new TypeScript file
-    fs.ensureFileSync(outputPath);
-    fs.writeFileSync(outputPath, replacedContent);
+    // Write the new file
+    const outputPathSansHbs = outputPath.split(".hbs")[0];
+    fs.ensureFileSync(outputPathSansHbs);
+    fs.writeFileSync(outputPathSansHbs, replacedContent);
   });
 
-  console.log("Processing and transforming template... done.");
+  console.log("Instantiating template... done.");
   console.log(
     filesToProcess.length.toString().concat(" files successfully processed.")
   );

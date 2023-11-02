@@ -82,6 +82,7 @@ try {
       },
       { oldWord: `${packageName}-project-name`, newWord: `{{projectName}}` },
       { oldWord: packageName, newWord: `{{projectName}}` },
+      { oldWord: "workspace:*", newWord: "latest" },
       // Add more replacements as needed
     ];
 
