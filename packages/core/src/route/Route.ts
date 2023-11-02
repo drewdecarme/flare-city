@@ -7,11 +7,14 @@ import type {
 import { ErrorNotFound, errorHandler, ErrorServer } from "../utils";
 import { log, createMiddlewareValidate } from "../utils";
 import type {
+  RouteCRUD,
+  RouteDELETE,
   RouteGET,
   RouteHandlerResponse,
   RouteMatch,
   RouteMethods,
   RoutePOST,
+  RoutePUT,
 } from "./route.types";
 
 interface RouteConstructorParams {
@@ -20,7 +23,12 @@ interface RouteConstructorParams {
 
 export class Route implements RouteConstructorParams {
   root: string;
-  private requests: { GET: RouteGET[]; POST: RoutePOST[] };
+  private requests: {
+    GET: RouteGET[];
+    POST: RoutePOST[];
+    DELETE: RouteDELETE[];
+    PUT: RoutePUT[];
+  };
   private matchedRoute: RouteMatch | undefined;
 
   constructor(params: RouteConstructorParams) {
@@ -28,6 +36,8 @@ export class Route implements RouteConstructorParams {
     this.requests = {
       GET: [],
       POST: [],
+      DELETE: [],
+      PUT: [],
     };
     this.matchedRoute = undefined;
   }
@@ -38,13 +48,16 @@ export class Route implements RouteConstructorParams {
    */
   private static response: RouteHandlerResponse<Record<string, unknown>> =
     async ({ json, status = 200 }) =>
-      new Response(JSON.stringify(json), { status });
+      new Response(JSON.stringify(json), {
+        status,
+        headers: new Headers({ "Content-Type": "application/json" }),
+      });
 
   get<
     R extends ApiResponse<unknown>,
     S extends RequestURLSegments = RequestURLSegments,
     P extends RequestURLSearchParams = RequestURLSearchParams,
-  >(params: RouteGET<R, S, P>) {
+  >(params: Omit<RouteGET<R, S, P>, "method">) {
     /**
      * RATIONALE: Don't really care about the internal
      * types of this... all we care is that it get's stored
@@ -52,7 +65,10 @@ export class Route implements RouteConstructorParams {
      */
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    this.requests.GET.push(params);
+    this.requests.GET.push({
+      method: "GET",
+      ...params,
+    });
   }
 
   post<
@@ -60,7 +76,7 @@ export class Route implements RouteConstructorParams {
     B extends Record<string, unknown>,
     S extends RequestURLSegments = RequestURLSegments,
     P extends RequestURLSearchParams = RequestURLSearchParams,
-  >(params: RoutePOST<R, B, S, P>) {
+  >(params: Omit<RoutePOST<R, B, S, P>, "method">) {
     /**
      * RATIONALE: Don't really care about the internal
      * types of this... all we care is that it get's stored
@@ -68,7 +84,46 @@ export class Route implements RouteConstructorParams {
      */
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    this.requests.POST.push(params);
+    this.requests.POST.push({
+      method: "POST",
+      ...params,
+    });
+  }
+
+  put<
+    R extends ApiResponse<unknown>,
+    B extends Record<string, unknown>,
+    S extends RequestURLSegments = RequestURLSegments,
+    P extends RequestURLSearchParams = RequestURLSearchParams,
+  >(params: Omit<RoutePUT<R, B, S, P>, "method">) {
+    /**
+     * RATIONALE: Don't really care about the internal
+     * types of this... all we care is that it get's stored
+     * in the requests.get array and then can be parsed appropriately
+     */
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    this.requests.PUT.push({
+      method: "PUT",
+      ...params,
+    });
+  }
+
+  delete<
+    S extends RequestURLSegments = RequestURLSegments,
+    P extends RequestURLSearchParams = RequestURLSearchParams,
+  >(params: Omit<RouteDELETE<S, P>, "method">) {
+    /**
+     * RATIONALE: Don't really care about the internal
+     * types of this... all we care is that it get's stored
+     * in the requests.get array and then can be parsed appropriately
+     */
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    this.requests.DELETE.push({
+      method: "DELETE",
+      ...params,
+    });
   }
 
   private matchAndParseRouteRequest(
@@ -119,6 +174,7 @@ export class Route implements RouteConstructorParams {
   private matchRouteWithRequest(request: Request) {
     log.info("Matching request method & pathname with `route.url` pattern...");
     const method = request.method.toUpperCase() as RouteMethods;
+
     const routes = this.requests[method];
     if (!routes) {
       throw new ErrorNotFound(
@@ -128,6 +184,7 @@ export class Route implements RouteConstructorParams {
 
     const matchedRoute = routes.reduce<RouteMatch | undefined>(
       (accum, routeDef) => {
+        console.log(routeDef.path);
         const urlPatternMatch = this.matchAndParseRouteRequest(
           request,
           routeDef.path
@@ -167,29 +224,25 @@ export class Route implements RouteConstructorParams {
     context: ExecutionContext
   ) {
     if (!this.matchedRoute) return;
-    if (!this.matchedRoute.route.middleware) {
-      log.debug("No middleware to run. Bypassing middleware runner.");
-      return;
-    }
     log.info("Running route level middleware...");
 
     // destructure `middleware` and `parse` out of the route
     // definition to make it easier to use
-    const { parse, middleware } = this.matchedRoute.route;
+    const routeMiddleware = this.matchedRoute.route.middleware || [];
 
     // Add segment validation to middleware array if available.
-    if (parse?.segments) {
+    if (this.matchedRoute.route.parse?.segments) {
       context.segments = this.matchedRoute.pattern.pathname.groups;
       const segmentMiddleware = createMiddlewareValidate({
         name: "segments",
-        schema: parse.segments,
+        schema: this.matchedRoute.route.parse.segments,
         contextKey: "segments",
       });
-      middleware.push(segmentMiddleware);
+      routeMiddleware.push(segmentMiddleware);
     }
 
     // Add param validation to middleware array if available
-    if (parse?.params) {
+    if (this.matchedRoute.route.parse?.params) {
       const searchEntries = new URLSearchParams(
         this.matchedRoute.pattern.search.input
       ).entries();
@@ -197,14 +250,36 @@ export class Route implements RouteConstructorParams {
       context.params = searchParams;
       const paramsMiddleware = createMiddlewareValidate({
         name: "params",
-        schema: parse.params,
+        schema: this.matchedRoute.route.parse.params,
         contextKey: "params",
       });
-      middleware.push(paramsMiddleware);
+      routeMiddleware.push(paramsMiddleware);
+    }
+
+    if (
+      (this.matchedRoute.route.method === "POST" ||
+        this.matchedRoute.route.method === "PUT") &&
+      this.matchedRoute.route.parse?.body
+    ) {
+      const body = await request.json();
+      context.body = body as Record<string, unknown>;
+      const paramsMiddleware = createMiddlewareValidate({
+        name: "params",
+        schema: this.matchedRoute.route.parse.body,
+        contextKey: "body",
+      });
+      routeMiddleware.push(paramsMiddleware);
+    }
+
+    if (routeMiddleware?.length === 0) {
+      log.debug(
+        "No middleware to run, segments, or params to validate... Bypassing middleware runner."
+      );
+      return;
     }
 
     // Run middlewares one at a time
-    for await (const middlewareFn of middleware) {
+    for await (const middlewareFn of routeMiddleware) {
       await middlewareFn(request, env, context);
     }
     log.info("Running route level middleware... done");

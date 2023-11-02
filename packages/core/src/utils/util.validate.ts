@@ -17,7 +17,12 @@ import { ErrorValidation, log } from "../utils";
  * the required args.
  */
 export const createMiddlewareValidate =
-  <T extends RequestURLSegments | RequestURLSearchParams>({
+  <
+    T extends
+      | RequestURLSegments
+      | RequestURLSearchParams
+      | Record<string, unknown>,
+  >({
     name,
     schema,
     contextKey,

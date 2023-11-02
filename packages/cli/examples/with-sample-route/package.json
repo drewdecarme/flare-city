@@ -11,7 +11,7 @@
   "scripts": {
     "deploy": "wrangler deploy",
     "dev": "wrangler dev --port=8282",
-    "build": "yarn build:types",
+    "build": "yarn tsc --project tsconfig.types.json",
     "test": "yarn flare-city test",
     "lint": "npx eslint . --fix"
   },

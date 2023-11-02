@@ -11,21 +11,21 @@
   "scripts": {
     "deploy": "wrangler deploy",
     "dev": "wrangler dev --port=8282",
-    "build": "yarn build:types",
+    "build": "yarn tsc --project tsconfig.types.json",
     "test": "yarn flare-city test",
     "lint": "npx eslint . --fix"
   },
   "dependencies": {
-    "@flare-city/core": "latest",
-    "@flare-city/logger": "latest",
+    "@flare-city/core": "workspace:*",
+    "@flare-city/logger": "workspace:*",
     "zod": "3.22.4"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "latest",
-    "@flare-city/cli": "latest",
-    "@flare-city/eslint-config": "latest",
-    "@flare-city/test": "latest",
-    "@flare-city/tsconfig": "latest",
+    "@flare-city/cli": "workspace:*",
+    "@flare-city/eslint-config": "workspace:*",
+    "@flare-city/test": "workspace:*",
+    "@flare-city/tsconfig": "workspace:*",
     "@types/node": "20.8.9",
     "dotenv-cli": "7.3.0",
     "typescript": "5.2.2",

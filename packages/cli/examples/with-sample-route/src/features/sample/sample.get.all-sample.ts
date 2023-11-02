@@ -8,7 +8,6 @@ export type GetAllSampleApiResponse = ApiResponse<{ message: string }>;
 // Get all samples
 RouteSample.get<GetAllSampleApiResponse>({
   path: "",
-  method: "GET",
   middleware: [middlewareSample],
   handler: async (req, env, context, res) => {
     return res({

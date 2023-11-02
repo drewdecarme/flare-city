@@ -31,7 +31,6 @@ RouteSample.get<
   GetSingleSampleApiSearchParams
 >({
   path: "/:id/:test",
-  method: "GET",
   middleware: [middlewareSample],
   parse: {
     segments: GetSingleSampleApiSegmentsSchema,
