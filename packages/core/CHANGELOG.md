@@ -1,5 +1,11 @@
 # @flare-city/core
 
+## 0.4.0
+
+### Minor Changes
+
+- 4e5a38f: Adds another example & template that details CRUD setup; Allows parsing of request.body
+
 ## 0.3.0
 
 ### Minor Changes
