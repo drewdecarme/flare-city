@@ -18,10 +18,12 @@ import type {
 
 interface RouteConstructorParams {
   root: string;
+  name: string;
 }
 
 export class Route implements RouteConstructorParams {
   root: string;
+  name: string;
   private requests: {
     GET: RouteGET[];
     POST: RoutePOST[];
@@ -32,6 +34,7 @@ export class Route implements RouteConstructorParams {
 
   constructor(params: RouteConstructorParams) {
     this.root = params.root;
+    this.name = params.name;
     this.requests = {
       GET: [],
       POST: [],
@@ -298,6 +301,8 @@ export class Route implements RouteConstructorParams {
 
       // this should never happen... this is just to appease TS
       if (!this.matchedRoute) return;
+
+      log.setName(`FlareCity - Route:${this.name}`);
 
       // Return instantiated route.handler
       return this.matchedRoute.route.handler(
