@@ -1,5 +1,12 @@
 # @flare-city/test
 
+## 0.4.1
+
+### Patch Changes
+
+- Updated dependencies [4e5a38f]
+  - @flare-city/core@0.4.0
+
 ## 0.4.0
 
 ### Minor Changes
