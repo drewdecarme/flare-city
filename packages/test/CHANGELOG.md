@@ -1,5 +1,12 @@
 # @flare-city/test
 
+## 0.4.2
+
+### Patch Changes
+
+- Updated dependencies [b8081ce]
+  - @flare-city/core@0.5.0
+
 ## 0.4.1
 
 ### Patch Changes
