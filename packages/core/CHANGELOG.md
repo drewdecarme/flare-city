@@ -1,5 +1,11 @@
 # @flare-city/core
 
+## 0.5.0
+
+### Minor Changes
+
+- b8081ce: Adds required route constructor param `name` to better identify logs
+
 ## 0.4.0
 
 ### Minor Changes
