@@ -3,7 +3,6 @@ import type {
   RequestURLSearchParams,
   RequestURLSegments,
   Middleware,
-  Env,
   ApiResponse,
 } from "../utils";
 

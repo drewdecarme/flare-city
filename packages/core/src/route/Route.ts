@@ -1,5 +1,4 @@
 import type {
-  Env,
   ApiResponse,
   RequestURLSegments,
   RequestURLSearchParams,

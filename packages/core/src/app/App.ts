@@ -1,4 +1,4 @@
-import type { Env, HandlerArgs, Middleware } from "../utils";
+import type { HandlerArgs, Middleware } from "../utils";
 import { ErrorNotFound, errorHandler, log } from "../utils";
 import type { Route } from "../route/Route";
 import type { LogLevel, LoggingType } from "@flare-city/logger";
