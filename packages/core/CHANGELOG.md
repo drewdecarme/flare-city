@@ -1,5 +1,11 @@
 # @flare-city/core
 
+## 0.6.0
+
+### Minor Changes
+
+- 6430afe: Declares environment type globally to allow for type augmentation
+
 ## 0.5.0
 
 ### Minor Changes
