@@ -1,5 +1,7 @@
 {
-  "parse-and-validate": "Route parsing and validation with Zod",
-  "zod-types": "Using inferred types",
-  "paradigms": "Paradigms"
+  "paradigms": "Paradigms",
+  "directory-architecture": "Directory Architecture",
+  "environment-variables": "Environment Variables",
+  "route-parsing": "Route Parsing / Validation",
+  "route-types": "Exporting Route Types for Reuse"
 }
